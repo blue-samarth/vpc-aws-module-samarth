@@ -28,12 +28,6 @@ variable "project_name" {
   type        = string
 }
 
-variable "env_name" {
-  description = "Environment name (e.g., admin, development, production)"
-  type        = string
-  default     = null
-}
-
 variable "secondary_cidr_blocks" {
   description = "List of secondary CIDR blocks to associate with the VPC to extend the IP Address pool"
   type        = list(string)
