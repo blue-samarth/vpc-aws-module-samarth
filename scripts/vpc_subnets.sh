@@ -494,27 +494,39 @@ subnet_main() {
         # Convert array to Terraform list format: ["subnet1","subnet2","subnet3"]
         PUBLIC_SUBNETS="[$(printf '"%s",' "${pub_allocations[@]}" | sed 's/,$//')]"
         export PUBLIC_SUBNETS
+        PUBLIC_SUBNET_COUNT="$pub_count"
+        export PUBLIC_SUBNET_COUNT
     else
         PUBLIC_SUBNETS="[]"
         export PUBLIC_SUBNETS
+        PUBLIC_SUBNET_COUNT="0"
+        export PUBLIC_SUBNET_COUNT
     fi
     
     if [ $prv_count -gt 0 ]; then
         # Convert array to Terraform list format: ["subnet1","subnet2","subnet3"]
         PRIVATE_SUBNETS="[$(printf '"%s",' "${prv_allocations[@]}" | sed 's/,$//')]"
         export PRIVATE_SUBNETS
+        PRIVATE_SUBNET_COUNT="$prv_count"
+        export PRIVATE_SUBNET_COUNT
     else
         PRIVATE_SUBNETS="[]"
         export PRIVATE_SUBNETS
+        PRIVATE_SUBNET_COUNT="0"
+        export PRIVATE_SUBNET_COUNT
     fi
     
     if [ $db_count -gt 0 ]; then
         # Convert array to Terraform list format: ["subnet1","subnet2","subnet3"]
         DATABASE_SUBNETS="[$(printf '"%s",' "${db_allocations[@]}" | sed 's/,$//')]"
         export DATABASE_SUBNETS
+        DATABASE_SUBNET_COUNT="$db_count"
+        export DATABASE_SUBNET_COUNT
     else
         DATABASE_SUBNETS="[]"
         export DATABASE_SUBNETS
+        DATABASE_SUBNET_COUNT="0"
+        export DATABASE_SUBNET_COUNT
     fi
     
     # Enhanced structured output format_v2
@@ -542,8 +554,11 @@ subnet_main() {
     # Debug output for exported variables
     echo -e "\n${BLUE}[EXPORTED VARIABLES]${RESET}"
     echo -e "${GREEN}PUBLIC_SUBNETS=${RESET}$PUBLIC_SUBNETS"
+    echo -e "${GREEN}PUBLIC_SUBNET_COUNT=${RESET}$PUBLIC_SUBNET_COUNT"
     echo -e "${BLUE}PRIVATE_SUBNETS=${RESET}$PRIVATE_SUBNETS"
+    echo -e "${BLUE}PRIVATE_SUBNET_COUNT=${RESET}$PRIVATE_SUBNET_COUNT"
     echo -e "${PURPLE}DATABASE_SUBNETS=${RESET}$DATABASE_SUBNETS"
+    echo -e "${PURPLE}DATABASE_SUBNET_COUNT=${RESET}$DATABASE_SUBNET_COUNT"
     
     echo -e "\n${PURPLE}AWS Availability Zone Recommendations:${RESET}"
     if [ $subnet_count -le 3 ]; then
