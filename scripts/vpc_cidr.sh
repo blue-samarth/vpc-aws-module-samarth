@@ -4,6 +4,8 @@
 # VPC CIDR Configuration Wizard
 #========================
 
+set -euo pipefail
+
 # Colors
 CYAN="\e[1;36m"
 GREEN="\e[1;32m"
@@ -17,8 +19,7 @@ echo -e "${CYAN}=========================================="
 echo -e "      VPC CIDR Configuration Wizard       "
 echo -e "==========================================${RESET}"
 
-MENU_TOOL="/usr/local/bin/menu_selector"
-MENU_URL="https://raw.githubusercontent.com/blue-samarth/Kubernetes_automation/master/menu_selector.sh"
+MENU_URL="https://raw.githubusercontent.com/blue-samarth/Terminal-Menu-Selector/master/menu_selector.sh"
 
 if [ ! -f "$MENU_TOOL" ]; then
   echo "[INFO] Installing menu_selector..."
