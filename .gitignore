@@ -1,0 +1,168 @@
+# ======================================
+# VPC AWS Module - .gitignore
+# ======================================
+
+# Environment Files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Terraform Files
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+terraform.tfvars
+terraform_*.tfvars
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# AWS Credentials
+.aws/
+aws-credentials
+credentials
+
+# Generated Configuration Files
+terraform_network.tfvars
+terraform_vpc.tfvars
+terraform_output.tfvars
+config.auto.tfvars
+
+# SSH Keys
+*.pem
+*.key
+*.pub
+id_rsa*
+id_ed25519*
+
+# Script Generated Files
+menu_selector
+/usr/local/bin/menu_selector
+
+# Backup Files
+backups/
+*.backup
+*.bak
+*~
+*.swp
+*.swo
+
+# OS Generated Files
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.stackdump
+
+# Linux
+*~
+.nfs*
+
+# Editor Files
+# VSCode
+.vscode/
+*.code-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.viminfo
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Logs
+*.log
+logs/
+*.out
+
+# Node.js (if using any Node tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (if using any Python tools)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+
+# Temporary Files
+tmp/
+temp/
+.tmp/
+*.tmp
+
+# Archive Files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Documentation Build
+docs/_build/
+site/
+
+# Testing
+.coverage
+coverage/
+test-results/
+junit.xml
+
+# Local Configuration
+local.conf
+local.config
+*.local
+
+# Network/Security Sensitive
+private/
+secrets/
+.secrets/
+*.crt
+*.csr
+*.p12
+*.pfx
+
+# Project Specific
+# Add any project-specific files or patterns here
+implementation/test-*
+scripts/debug-*
+vpc/test-*

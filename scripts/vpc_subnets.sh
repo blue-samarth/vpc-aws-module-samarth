@@ -5,6 +5,8 @@
 # Features: User-controlled placement, cushions, confirmation loop, descriptive errors
 #========================
 
+set -euo pipefail
+
 # Colors
 CYAN="\e[1;36m"
 GREEN="\e[1;32m"
@@ -19,8 +21,16 @@ echo -e "      VPC SUBNET Configuration Wizard       "
 echo -e "         Enhanced with User Control         "
 echo -e "==========================================${RESET}"
 
-MENU_TOOL="/usr/local/bin/menu_selector"
-MENU_URL="https://raw.githubusercontent.com/blue-samarth/Kubernetes_automation/master/menu_selector.sh"
+MENU_URL="https://raw.githubusercontent.com/blue-samarth/Terminal-Menu-Selector/master/menu_selector.sh"
+
+# Check if menu_selector.sh is in the scripts folder
+if [ ! -f "./scripts/menu_selector.sh" ]; then
+  echo "[INFO] Downloading menu_selector to scripts folder..."
+  curl -s -o "./scripts/menu_selector.sh" "$MENU_URL"
+  chmod +x "./scripts/menu_selector.sh" 
+  MENU_TOOL="./scripts/menu_selector.sh"
+fi
+
 
 if [ ! -f "$MENU_TOOL" ]; then
   echo "[INFO] Installing menu_selector..."
